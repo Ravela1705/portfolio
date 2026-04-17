@@ -6,12 +6,10 @@ import Background3D from "./Background3D";
 export default function Hero() {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* 3D Background Layer */}
       <div className="absolute inset-0 z-0">
         <Background3D />
       </div>
 
-      {/* Content Layer */}
       <div className="relative z-10 text-center px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,47 +30,19 @@ export default function Hero() {
             secure architecture, and innovative full-stack development.
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center pt-8">
-            {/* Contact Button */}
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#contact"
-              className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-bold rounded-full transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)]"
-            >
-              Contact Me
-            </motion.a>
-
-            {/* DOWNLOAD CV BUTTON */}
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="/Ravela_Chandraditya_CV.pdf"
+          <div className="pt-8">
+            <a 
+              href="/cv.pdf" 
               download="Ravela_Chandraditya_CV.pdf"
-              className="px-8 py-4 border-2 border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 font-bold rounded-full transition-all flex items-center gap-2 backdrop-blur-md"
+              className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-bold rounded-full transition-all inline-flex items-center gap-2"
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" x2="12" y1="15" y2="3"/>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
               Download CV
-            </motion.a>
+            </a>
           </div>
         </motion.div>
       </div>
 
-      {/* Decorative Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black pointer-events-none"></div>
     </section>
   );
