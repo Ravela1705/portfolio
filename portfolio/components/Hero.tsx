@@ -5,46 +5,75 @@ import Background3D from "./Background3D";
 
 export default function Hero() {
   return (
-    // We changed the background to transparent and made it relative
-    <section className="relative min-h-screen flex flex-col justify-center items-center bg-transparent text-white px-6 overflow-hidden">
-      
-      {/* Our new 3D Background sits here! */}
-      
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+      {/* 3D Background Layer */}
+      <div className="absolute inset-0 z-0">
+        <Background3D />
+      </div>
 
-      {/* We wrapped your text in a z-10 container so it floats ABOVE the 3D particles */}
-      <div className="relative z-10 flex flex-col items-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-extrabold text-center tracking-tight drop-shadow-lg"
-        >
-          Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Ravela Chandraditya</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="mt-6 text-lg md:text-xl text-gray-300 text-center max-w-2xl leading-relaxed drop-shadow-md"
-        >
-          A Computer Science student & developer crafting seamless UI/UX, AI solutions, and secure applications. 
-        </motion.p>
-
+      {/* Content Layer */}
+      <div className="relative z-10 text-center px-6">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6"
         >
-          <a 
-            href="#projects" 
-            className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors shadow-[0_0_30px_rgba(52,211,153,0.3)]"
-          >
-            View My Work
-          </a>
+          <h2 className="text-emerald-400 font-mono text-lg tracking-widest uppercase">
+            Cybersecurity Researcher & Developer
+          </h2>
+          
+          <h1 className="text-6xl md:text-8xl font-bold text-white tracking-tighter">
+            RAVELA <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">CHANDRADITYA</span>
+          </h1>
+
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+            Protecting the digital frontier through ethical hacking, 
+            secure architecture, and innovative full-stack development.
+          </p>
+
+          <div className="flex flex-wrap gap-4 justify-center pt-8">
+            {/* Contact Button */}
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#contact"
+              className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-black font-bold rounded-full transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+            >
+              Contact Me
+            </motion.a>
+
+            {/* DOWNLOAD CV BUTTON */}
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/Ravela_Chandraditya_CV.pdf"
+              download="Ravela_Chandraditya_CV.pdf"
+              className="px-8 py-4 border-2 border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 font-bold rounded-full transition-all flex items-center gap-2 backdrop-blur-md"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" x2="12" y1="15" y2="3"/>
+              </svg>
+              Download CV
+            </motion.a>
+          </div>
         </motion.div>
       </div>
+
+      {/* Decorative Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black pointer-events-none"></div>
     </section>
   );
 }
