@@ -16,8 +16,8 @@ const projects = [
     description: "Hybrid e-voting platform solving institutional trust issues. Built with Next.js, Supabase, and Polygon blockchain. Features smart contracts for election management and Gemini AI for analytics.",
     tech: ["Next.js", "Solidity", "Supabase", "Gemini AI"],
     github: "https://github.com/Ravela1705/blockvote-frontend",
-    link: "https://blockvote-frontend-o6k5-heni80ux5-ravela-chandradityas-projects.vercel.app",
-    adminLink: "https://blockvote-frontend-o6k5-heni80ux5-ravela-chandradityas-projects.vercel.app/admin" // Added the Admin Link here!
+    link: "https://blockchainvote.vercel.app",
+    adminLink: "https://blockchainvote.vercel.app/admin" // Added the Admin Link here!
   },
   {
     title: "Online Lost and Found System",
