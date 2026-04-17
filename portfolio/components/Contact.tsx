@@ -1,0 +1,78 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useState } from "react";
+
+const MailIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+);
+
+export default function Contact() {
+  const [buttonText, setButtonText] = useState("Send Message");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setButtonText("Sending...");
+    setTimeout(() => {
+      setButtonText("Message Sent!");
+    }, 2000);
+  };
+
+  return (
+    <section id="contact" className="py-24 bg-transparent text-white px-6 relative z-50">
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-16 text-center">
+          <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-emerald-400 rounded-full mx-auto mb-8"></div>
+          <p className="text-gray-400 text-lg">
+            Looking for a skilled developer or UI/UX designer? I'm currently open to new opportunities.
+          </p>
+        </div>
+
+        <div className="flex flex-col md:flex-row gap-12">
+          {/* Email Card with Hover Physics */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} whileHover={{ y: -10 }}
+            className="md:w-1/3 space-y-6"
+          >
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col items-center text-center transition-all hover:border-emerald-400/30 hover:bg-white/10 backdrop-blur-sm cursor-none">
+              <div className="p-4 bg-white/5 rounded-full mb-4">
+                <MailIcon />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Email Me</h3>
+              <a href="mailto:chandraditya_ravela@srmap.edu.in" className="text-gray-400 hover:text-emerald-400 transition-colors text-sm break-all cursor-none">
+                ravelachandraditya2004@gmail.com
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Form Card with Hover Physics */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} whileHover={{ y: -10 }}
+            className="md:w-2/3 bg-white/5 border border-white/10 p-8 rounded-2xl transition-all hover:border-emerald-400/30 hover:bg-white/10 backdrop-blur-sm"
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm text-gray-400 font-medium">Your Name</label>
+                  <input type="text" required className="w-full bg-[#0a0a0a]/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-400 transition-colors cursor-none" placeholder="Name"/>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm text-gray-400 font-medium">Your Email</label>
+                  <input type="email" required className="w-full bg-[#0a0a0a]/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-400 transition-colors cursor-none" placeholder="Email" />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm text-gray-400 font-medium">Your Message</label>
+                <textarea required rows={5} className="w-full bg-[#0a0a0a]/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-400 transition-colors resize-none cursor-none" placeholder="How can I help you?"></textarea>
+              </div>
+              <button type="submit" className="w-full py-4 bg-white text-black font-semibold rounded-xl hover:bg-emerald-400 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(52,211,153,0.4)] cursor-none">
+                {buttonText}
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
