@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Background3D from "./Background3D";
 
 export default function Hero() {
   return (
